@@ -1,0 +1,131 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+    integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+    integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+    integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+    integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous">
+  </script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+  <script src="myscripts.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/custom.css">
+  <title>Accordion</title>
+</head>
+
+
+<body class="grid-container">
+  <div class="container">
+    <div class="header clearfix">
+      <div id="nav-placeholder">
+
+      </div>
+
+      <script>
+        $(function () {
+          $("#nav-placeholder").load("nav.html");
+        });
+      </script>
+      <!--end of Navigation bar-->
+    </div>
+
+    <div style="margin-top: 4rem;" class="container">
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+                <strong>Why doesn’t Vue.js support IE8</strong>
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapseOne" class="collapse-container" class="collapse show" aria-labelledby="headingOne"
+            data-parent="#accordionExample">
+            <div class="card-body">
+              <p>Vue.js is able to deliver the plain JavaScript object syntax without resorting to dirty checking by
+                using <code>Object.defineProperty</code>, which is an ECMAScript 5 feature. It only works on DOM
+                elements in IE8 and there’s no way to polyfill it for JavaScript objects.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="false" aria-controls="collapseTwo">
+                <strong>So Vue.js modifies my data?</strong>
+              </button>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse-container" class="collapse" aria-labelledby="headingTwo"
+            data-parent="#accordionExample">
+            <div class="card-body">
+              <li>
+                <p>Yes and No. Vue.js only converts normal properties into getters and setters so it can get notified
+                  when the properties are accessed or changed. When serialized, your data will look exactly the same.
+                  There are, of course, some caveats:</p>
+                <ol>
+                  <li>
+                    <p>When you <code>console.log</code> observed objects you will only see a bunch of getter/setters.
+                      However you can use <code>vm.$log()</code> to log a more inspectable output.</p>
+                  </li>
+                  <li>
+                    <p>You cannot define your own getter/setters on data objects. This isn’t much of a problem because
+                      data objects are expected to be obtained from plain JSON and Vue.js provides computed properties.
+                    </p>
+                  </li>
+                  <li>
+                    <p>Vue.js adds a few extra properties/methods to observed objects: <code>__ob__</code>,
+                      <code>$add</code>, <code>$set</code> and <code>$delete</code>. These properties are inenumberable
+                      so they will not show up in <code>for ... in ...</code> loops. However if you overwrite them
+                      things will likely break.</p>
+                  </li>
+                </ol>
+                <p>That’s pretty much it. Accessing properties on the object is the same as before,
+                  <code>JSON.stringify</code> and <code>for ... in ...</code> loops will work as normal. 99.9% of the
+                  time you don’t even need to think about it.</p>
+              </li>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
+                  aria-expanded="false" aria-controls="collapseThree">
+                  <strong>What is the current status of Vue.js? Can I use it in production?</strong>
+                </button>
+              </h5>
+            </div>
+            <div id="collapseThree" class="collapse-container" class="collapse" aria-labelledby="headingThree"
+              data-parent="#accordionExample">
+              <div class="card-body">
+                <p>Vue.js has gone through some API changes in the latest 0.12 release, but this is the last planned
+                  point release before 1.0. In the meanwhile, there already <a
+                    href="https://github.com/yyx990803/vue/wiki/Projects-Using-Vue.js" target="_blank"
+                    rel="external">companies/projects using Vue.js in production</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <p>© Vue.js 2019</p>
+    </footer>
+
+</body>
+
+</html>
